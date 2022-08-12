@@ -1,0 +1,542 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<section>
+					<h3>What is React?</h3>
+					<p>JavaScript library that aims to simplify the development of visual user interfaces.</p>
+				</section>
+				<section>
+					<h2>The main concept of React is:</h2>
+					<ul>
+						<li>Components</li>
+						<li>JSX</li>
+						<li>Props</li>
+						<li>Hooks</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section id="fragments">
+					<h2>How to install React.</h2>
+					<pre class="fragment">
+							<code data-trim data-noescape>
+								<span>$ npx create-react-app &#60;app-name&#62;</span>
+								<span class="fragment">$ npm start</span>
+							</code>
+						</pre>
+				</section>
+				<section>
+					<h3>file structure</h3>
+					<ul>
+						<li>index.js - is the entry point of application.</li>
+						<li>in index.css you can put your styles.</li>
+						<li>App.js has a function called component.</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 data-id="code-title">Components</h2>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">...some imports</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							import React from 'react';
+						</code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">...function</h3>
+
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="3-10|6-8"><script type="text/template">
+							import React from 'react';
+	
+							function App() {
+	
+								return (
+									<div>
+										...
+									</div>
+								);
+							}
+							
+	
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">...exporting</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers><script type="text/template">
+							import React from 'react';
+	
+							function App() {
+	
+								return (
+									<div>
+										...
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Add initial JSX</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="7"><script type="text/template">
+							import React from 'react';
+	
+							function App() {
+	
+								return (
+									<div>
+										<h1>Hello</h1>
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Create a new component</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="3-8"><script type="text/template">
+							import React from 'react';
+							
+							function WelcomeMessage() {
+	
+								return (
+									<p>Welcome!</p>
+								)
+							}
+							
+							function App() {
+	
+								return (
+									<div>
+										<h1>Hello</h1>
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Include new component into App component</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="15"><script type="text/template">
+							import React from 'react';
+							
+							function WelcomeMessage() {
+	
+								return (
+									<p>Welcome!</p>
+								)
+							}
+							
+							function App() {
+	
+								return (
+									<div>
+										<h1>Hello</h1>
+										<WelcomeMessage />
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 data-id="code-title">JSX</h2>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">JSX returned by the component</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="6|13-16"><script type="text/template">
+							import React from 'react';
+							
+							function WelcomeMessage() {
+	
+								return (
+									<p>Welcome!</p>
+								)
+							}
+							
+							function App() {
+	
+								return (
+									<div>
+										<h1>Hello</h1>
+										<WelcomeMessage />
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Classes in JSX</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="13"><script type="text/template">
+							import React from 'react';
+							
+							function WelcomeMessage() {
+	
+								return (
+									<p>Welcome!</p>
+								)
+							}
+							
+							function App() {
+	
+								return (
+									<div className="wrapper">
+										<h1>Hello</h1>
+										<WelcomeMessage />
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">JavaScript in JSX</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="3|16"><script type="text/template">
+							import React from 'react';
+	
+							const message = "Hello"
+	
+							function WelcomeMessage() {
+	
+								return (
+									<p>Welcome!</p>
+								)
+							}
+							
+							function App() {
+	
+								return (
+									<div className="wrapper">
+										<h1>{message}</h1>
+										<WelcomeMessage />
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Props</h2>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Pass props in component</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="17"><script type="text/template">
+							import React from 'react';
+	
+							const message = "Hello"
+	
+							function WelcomeMessage() {
+	
+								return (
+									<p>Welcome!</p>
+								)
+							}
+							
+							function App() {
+	
+								return (
+									<div className="wrapper">
+										<h1>{message}</h1>
+										<WelcomeMessage myprop={'Aliaksei'} />
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Receive props in component</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5,8"><script type="text/template">
+							import React from 'react';
+	
+							const message = "Hello"
+	
+							function WelcomeMessage(props) {
+	
+								return (
+									<p>Welcome, {props.myProps}!</p>
+								)
+							}
+							
+							function App() {
+	
+								return (
+									<div className="wrapper">
+										<h1>{message}</h1>
+										<WelcomeMessage myprop={'Aliaksei'} />
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+			</section>
+			<section>
+				<section id="fragment">
+					<h2>Hooks</h2>
+					<ul class="fragment">
+						<li>useState</li>
+						<li>useEffect</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>useState</h2>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Import useState from React</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="1"><script type="text/template">
+							import React, { useState } from 'react'
+	
+							const message = "Hello"
+	
+							function WelcomeMessage() {
+	
+								return (
+									<p>Welcome, {props.myProps}!</p>
+								)
+							}
+							
+							function App() {
+	
+								return (
+									<div className="wrapper">
+										<h1>{message}</h1>
+										<WelcomeMessage myprop={'Aliaksei'} />
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Create state</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="12"><script type="text/template">
+							import React, { useState } from 'react'
+	
+							const message = "Hello"
+	
+							function WelcomeMessage() {
+								return (
+									<p>Welcome, {props.myProps}!</p>
+								)
+							}
+							
+							function App() {
+								const [count, setCount] = useState(0)
+								
+								return (
+									<div className="wrapper">
+										<h1>{message}</h1>
+										<WelcomeMessage myprop={'Aliaksei'} />
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Add JSX...</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="18-19"><script type="text/template">
+							import React, { useState } from 'react'
+	
+							const message = "Hello"
+	
+							function WelcomeMessage() {
+								return (
+									<p>Welcome, {props.myProps}!</p>
+								)
+							}
+							
+							function App() {
+								const [count, setCount] = useState(0)
+								
+								return (
+									<div className="wrapper">
+										<h1>{message}</h1>
+										<WelcomeMessage myprop={'Aliaksei'} />
+										<p>You clicked times</p>
+										<button>Click me</button>
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Add onClick attribute</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="18-19"><script type="text/template">
+							import React, { useState } from 'react'
+	
+							const message = "Hello"
+	
+							function WelcomeMessage() {
+								return (
+									<p>Welcome, {props.myProps}!</p>
+								)
+							}
+							
+							function App() {
+								const [count, setCount] = useState(0)
+								
+								return (
+									<div className="wrapper">
+										<h1>{message}</h1>
+										<WelcomeMessage myprop={'Aliaksei'} />
+										<p>You clicked {count} times</p>
+										<button onClick={() => setCount(count + 1)}>Click me</button>
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>useEffect</h2>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Import useEffect</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="1"><script type="text/template">
+							import React, { useState, useEffect } from "react";
+	
+							const message = "Hello"
+		
+							function WelcomeMessage() {
+								return (
+									<p>Welcome, {props.myProps}!</p>
+								)
+							}
+							
+							function App() {
+								const [count, setCount] = useState(0)
+								
+								return (
+									<div className="wrapper">
+										<h1>{message}</h1>
+										<WelcomeMessage myprop={'Aliaksei'} />
+										<p>You clicked {count} times</p>
+										<button onClick={() => setCount(count + 1)}>Click me</button>
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Add useEffect hook</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="14-16"><script type="text/template">
+							import React, { useState, useEffect } from "react";
+	
+							const message = "Hello"
+		
+							function WelcomeMessage() {
+								return (
+									<p>Welcome, {props.myProps}!</p>
+								)
+							}
+							
+							function App() {
+								const [count, setCount] = useState(0)
+	
+								useEffect(() => {
+									document.title = `You clicked ${count} times`;
+								}, [count])
+								
+								return (
+									<div className="wrapper">
+										<h1>{message}</h1>
+										<WelcomeMessage myprop={'Aliaksei'} />
+										<p>You clicked {count} times</p>
+										<button onClick={() => setCount(count + 1)}>Click me</button>
+									</div>
+								);
+							}
+							
+							export default App;
+						</script></code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Pros and cons of React</h2>
+				</section>
+				<section>
+					<h3>Benefits</h3>
+					<ul>
+						<li>Uses a declarative approach</li>
+						<li>JSX syntax</li>
+						<li>Functional approach</li>
+						<li>Huge community</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Disadvantages</h3>
+					<ul>
+						<li>Need to use some other technologies</li>
+						<li>Poor Documentation</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
